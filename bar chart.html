@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chart.js Tutorial</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        .chart-container {
+            width: 600px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>My First Chart</h2>
+
+    <div class="chart-container">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <!-- ✅ Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // JS will go here
+        const ctx = document.getElementById('myChart');
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+        const revenue = [50000, 60000, 55000, 70000, 75000, 80000];
+        const expenses = [30000, 35000, 32000, 40000, 42000, 45000];
+        const profit = [20000, 25000, 23000, 30000, 33000, 35000];
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: months,
+                datasets: [{
+                    label: 'Sales',
+                    data: revenue,
+                    backgroundColor: ['red', 'blue', 'green', 'orange']
+                },
+                {
+                    label: 'Expenses',
+                    data: expenses,
+                    backgroundColor: ['purple', 'pink', 'yellow', 'cyan']
+                },
+                {
+                    label: 'Profit',
+                    data: profit,
+                    backgroundColor: ['gray', 'brown', 'teal', 'lime']
+                }]
+            }
+        });
+    </script>
+
+</body>
+
+</html>
