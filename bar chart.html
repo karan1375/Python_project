@@ -22,12 +22,14 @@
     <h2>My First Chart</h2>
 
     <div class="chart-container">
-        <h2>Line Chart</h2>
+        <h2>Line Chart <br>Sales, Expenses, Profit</h2>
         <canvas id="myChart1"></canvas>
-        <h2>Bar Chart</h2>
+        <h2>Bar Chart <br>Revenue </h2>
         <canvas id="myChart2"></canvas>
-        <h2>Doughnut Chart</h2>
+        <h2>Doughnut Chart<br>Expenses</h2>
         <canvas id="myChart3"></canvas>
+        <h2>Line Chart<br>Profit</h2>
+        <canvas id="myChart4"></canvas>
     </div>
 
     <!-- ✅ Chart.js CDN -->
@@ -38,13 +40,27 @@
         const ctx1 = document.getElementById('myChart1');
         const ctx2 = document.getElementById('myChart2');
         const ctx3 = document.getElementById('myChart3');
+        const ctx4 = document.getElementById('myChart4');
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
         const revenue = [50000, 60000, 55000, 70000, 75000, 80000];
         const expenses = [30000, 35000, 32000, 40000, 42000, 45000];
         const profit = [20000, 25000, 23000, 30000, 33000, 35000];
 
+
+
+
+
         new Chart(ctx1, {
-            type: 'line',
+            options: {
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        min: 0
+                        // max: 100
+                    }
+                }
+            },
+            type: 'bar',
             data: {
                 labels: months,
                 datasets: [{
@@ -65,29 +81,61 @@
             }
         });
         //ctx2 is going to be a bar chart
-        new Chart(ctx2,{
-            type:"bar",
-            data:{
-                labels:months,
-                datasets:[{
-                    label:"Revenue",
-                    data:revenue,
-                    backgroundColor:""
+        new Chart(ctx2, {
+            options: {
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        min: 0
+                        // max: 100
+                    }
+                }
+            },
+            type: "bar",
+            data: {
+                labels: months,
+                datasets: [{
+                    label: "Revenue",
+                    data: revenue,
+                    backgroundColor: ""
                 }]
             }
         });
 
         // ctx3 is going to be a doughught chart
-        new Chart(ctx3,{
-            type:"doughnut",
-            data:{
-                labels:months,
-                datasets:[{
-                    lable:"profit",
-                    data:profit,
-                    backgroundColor:""
+        new Chart(ctx3, {
+
+            type: "doughnut",
+            data: {
+                labels: months,
+                datasets: [{
+                    lable: "Expenses",
+                    data: expenses,
+                    backgroundColor: ""
                 }]
             }
+        });
+        //ctx4 is going to be a pie chart
+        new Chart(ctx4, {
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        min: 0
+                        // max: 100
+                    }
+                }
+            },
+            type: "line",
+            data: {
+                labels: months,
+                datasets: [{
+                    lable: "profit",
+                    data: profit,
+                    backgroundColor: ""
+                }]
+            }
+
         })
     </script>
 
