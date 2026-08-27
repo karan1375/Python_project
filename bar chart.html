@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Chart.js Tutorial</title>
+    <title>Sales Dashboard</title>
     <style>
         body {
             font-family: Arial;
@@ -17,9 +17,8 @@
     </style>
 </head>
 
-<body>
-
-    <h2>My First Chart</h2>
+<body style="background-color: rgba(220, 239, 247, 0.726);">
+        <h2>My First Chart</h2>
 
     <div class="chart-container">
         <h2>Line Chart <br>Sales, Expenses, Profit</h2>
@@ -97,7 +96,7 @@
                 datasets: [{
                     label: "Revenue",
                     data: revenue,
-                    backgroundColor: ""
+                    backgroundColor:"green"
                 }]
             }
         });
@@ -109,9 +108,17 @@
             data: {
                 labels: months,
                 datasets: [{
-                    lable: "Expenses",
+                    label: "Expenses",
                     data: expenses,
-                    backgroundColor: ""
+                    backgroundColor:[
+                        "red",
+                        "blue",
+                        "green",
+                        "orange",
+                        "purple",
+                        "yellow"
+                    ]
+            
                 }]
             }
         });
@@ -130,9 +137,10 @@
             data: {
                 labels: months,
                 datasets: [{
-                    lable: "profit",
+                    label: "profit",
                     data: profit,
-                    backgroundColor: ""
+                    backgroundColor: "red",
+                    
                 }]
             }
 
